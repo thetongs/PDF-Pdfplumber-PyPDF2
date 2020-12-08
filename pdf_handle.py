@@ -11,7 +11,7 @@ import PyPDF2
 import pdfplumber
 
 def meta_data():
-    pdf = pdfplumber.open("Input/CV.pdf")
+    pdf = pdfplumber.open("CV.pdf")
 
     print("Number of pages : {}".format(len(pdf.pages)))
     print("Pages : {}".format(pdf.pages))
@@ -25,7 +25,7 @@ def meta_data():
     pdf.close()
 
 def extract_first():
-    pdf = pdfplumber.open("Input/CV.pdf")
+    pdf = pdfplumber.open("CV.pdf")
     page = pdf.pages[0]
     text = page.extract_text()
 
@@ -33,7 +33,7 @@ def extract_first():
     pdf.close()
 
 def extract_whole():
-    pdf = pdfplumber.open("Input/CV.pdf")
+    pdf = pdfplumber.open("CV.pdf")
     n = len(pdf.pages)
 
     final = ""
@@ -46,7 +46,7 @@ def extract_whole():
     pdf.close()
 
 def rotation_check():
-    pdf = pdfplumber.open("Input/CV.pdf")
+    pdf = pdfplumber.open("CV.pdf")
     l = int(pdf.pages[0].rotation)
 
     if(l):
@@ -56,7 +56,7 @@ def rotation_check():
     
     # Using PyPDF2
 
-    pdf_obj = open("Input/CV.pdf", 'rb')
+    pdf_obj = open("CV.pdf", 'rb')
     pdf_read_obj = PyPDF2.PdfFileReader(pdf_obj)
     pdf_read_page_rotation = pdf_read_obj.getPage(0).get("/Rotate")
 
